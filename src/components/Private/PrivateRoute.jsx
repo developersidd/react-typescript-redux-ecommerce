@@ -1,18 +1,17 @@
-import React from 'react';
-import { Navigate, Route } from 'react-router';
-//import useCustomContext from '../../hooks/useCustomContext';
-
+import { Navigate, Outlet } from 'react-router';
+import Loading from '../../components/ui/Loading';
+import useAuth from '../../hooks/useAuth';
+import useCheckAuth from '../../hooks/useCheckAuth';
 const PrivateRoute = () => {
-    //const { firebase: { user: { email, displayName }, isLoading } } = useCustomContext();
-
-    /*if (isLoading) {
-        return <div className="flex h-screen items-center justify-center">
-            <img className="w-72" src="https://cdn.dribbble.com/users/5484/screenshots/2145786/for_dribbble.gif" alt="loading-img" />
-        </div>
+    const isLoggedIn = useAuth();
+    const isLoading = useCheckAuth()
+    if (!isLoading) {
+        return <Loading />
+    } else {
+        return isLoggedIn ? <Outlet /> : <Navigate to="/login" />
     }
 
-    return  email ? <Outlet /> : <Navigate to="/login" />
-    */
+
 }
 
 export default PrivateRoute

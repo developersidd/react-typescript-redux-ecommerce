@@ -1,15 +1,32 @@
 import { MinusIcon, PlusIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import ErrorMessage from '../components/ui/ErrorMessage';
 import Loading from '../components/ui/Loading';
 import { sizes } from '../data/Variations';
+import { addProduct, editQuantity } from '../redux/features/cart/cartSlice';
+import { selectCart } from '../redux/features/cart/selectCart';
 import { useGetProductQuery } from '../redux/features/product/productAPI';
 const ProductDetails = () => {
     const { pdId } = useParams();
     const { data: product, isError, isLoading } = useGetProductQuery(pdId);
     const { title, description, price, image } = product || {};
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState(1);
+    const { bookedProducts = [] } = useSelector(selectCart);
+    const dispatch = useDispatch();
+
+    // handle cart
+    const handleCartProduct = () => {
+        const clickedPd = bookedProducts.find(pd => pd.id === pdId);
+        console.log("pdId:", pdId)
+        console.log("clickedPd:", clickedPd)
+        if (clickedPd?.id) {
+            dispatch(editQuantity({ id: pdId, quantity: quantity }));
+        } else {
+            dispatch(addProduct({ id: pdId, quantity: quantity, image, price, title, description }));
+        }
+    }
 
     // handle quantity
     const handleQuantity = (method) => {
@@ -70,7 +87,7 @@ const ProductDetails = () => {
 
                             <div className="ml-14">
                                 <button to="/shop"
-                                    //onClick={() => handleStoredProduct(findPd)}
+                                    onClick={handleCartProduct}
                                     className="px-8 border-2 border-black flex items-center max-w-max py-3 gap-2 hover:bg-black hover:text-white">
                                     <span> <ShoppingCartIcon className="h-5" /> </span>
                                     <span> Add to cart </span>

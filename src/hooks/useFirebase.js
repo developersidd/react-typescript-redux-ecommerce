@@ -1,13 +1,11 @@
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, getIdToken, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { userLoggedIn, userLoggedOut } from "../redux/features/auth/authSlice";
 import initAuth from './../firebase/firebase.init';
 const useFirebase = () => {
     initAuth();
-
     const dispatch = useDispatch()
-
     const auth = getAuth();
 
     // sign in
@@ -43,26 +41,26 @@ const useFirebase = () => {
 
             })
     }
-
-    // observer the user state change
-    useEffect(() => {
-        const unsubscribed = onAuthStateChanged(auth, (user) => {
+    
+    const userObserver = () => {
+         onAuthStateChanged(auth, (user) => {
             if (user) {
-                console.log("user:", user)
-                dispatch(userLoggedIn({ email: user.email, name: user.displayName, photo: user.photoURL }))
+                getIdToken(user)
+                    .then(idToken => localStorage.setItem("idToken", idToken));
+                dispatch(userLoggedIn(user))
             } else {
                 dispatch(userLoggedOut());
             }
-        });
-        return () => unsubscribed;
-    }, []);
-
+        })
+    }
+    
     return {
         createUser,
         logOut,
         googleSignIn,
         logInUser,
-        updateUser
+        updateUser,
+        userObserver,
     }
 }
 

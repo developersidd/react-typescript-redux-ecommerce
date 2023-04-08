@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.contact-animation {
+    animation: imgAnimate 0.8s linear infinite alternate-reverse;
+}
+
+@keyframes imgAnimate {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(22px);
+    }
+}
+
+.heading {
+    -webkit-text-stroke: 1px #5e5c5c;
+    color: transparent;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1;
+    line-height: inherit;
+    margin-bottom: 2rem;
+    text-align: center;
+}

@@ -1,13 +1,13 @@
 import Product from '../../components/Product/Product';
 import ErrorMessage from '../../components/ui/ErrorMessage';
-import { colors, sizes } from '../../data/Variations';
 import { useGetProductsQuery } from '../../redux/features/product/productAPI';
 import Loading from '../ui/Loading';
 
 const Products = () => {
 
     const { data: products, isError, isLoading } = useGetProductsQuery();
-
+    //get unique category
+    const categoryList = [...new Set(products?.map(pd => pd.category))]
     // decide what to render
     let content = null;
 
@@ -23,8 +23,11 @@ const Products = () => {
     }
 
     if (!isLoading && !isError && products?.length > 0) {
-        content = products.map(pd => <Product product={pd} />)
-
+        content = <>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+                {products.map(pd => <Product product={pd} />)}
+            </div>
+        </>
     }
 
     return (
@@ -36,15 +39,12 @@ const Products = () => {
                     <span className="text-xl md:text-2xl font-semibold">Filter Products : </span>
                     <select name="" id="" className="outline-none border p-2 mr-4 ">
                         {
-                            colors.map(pd => <option value={pd.color}> {pd.color} </option>)
+                            categoryList?.map((category, ind) =>
+                                <option key={ind}>
+                                    {category} </option>)
                         }
                     </select>
 
-                    <select name="" id="" className="outline-none border p-2 ">
-                        {
-                            sizes.map(pd => <option value={pd.size}> {pd.size} </option>)
-                        }
-                    </select>
 
                 </div>
                 <div>
@@ -56,10 +56,10 @@ const Products = () => {
                     </select>
                 </div>
             </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+            <dir>
                 {content}
-            </div>
+            </dir>
+
         </div>
     )
 }
