@@ -8,8 +8,10 @@ const useCheckAuth = () => {
     useEffect(() => {
         const auth = localStorage.getItem('idToken');
         if (auth && user?.email) {
-            setIsChecked(true);
         }
+        setTimeout(() =>{
+            setIsChecked(true);
+        }, 1200)
     }, [user]);
     return isChecked;
 }

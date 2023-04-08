@@ -76,7 +76,7 @@ const Login = () => {
                                 <input onChange={e => setEmail(e.target.value)} value={email} className="border-2 focus:border-yellow-200 rounded-full block w-full px-4 py-3 mb-4 outline-none" type="email" placeholder="Your Email" />
                                 <input onChange={e => setPassword(e.target.value)} value={password} className="border-2 focus:border-yellow-200 rounded-full block w-full px-4 py-3 mb-6 outline-none" type="password" placeholder="Your password" />
                                 <div className='flex justify-center items-stretch flex-col sm:items-center sm:flex-row'>
-                                    <button type='submit' className="justify-stretch sm:justify-center px-8 mr-2 py-2 rounded-3xl bg-blue-500 hover:bg-blue-600 mb-4 sm:mb-0  text-white shadow-lg">
+                                    <button type='submit' className="justify-stretch sm:justify-center px-8 mr-4 py-2 rounded-3xl bg-blue-500 hover:bg-blue-600 mb-4 sm:mb-0  text-white shadow-lg">
                                         Sing In </button>
                                     <p className="inline-block text-center pb-2">New to AB  Shop?<NavLink to="/register" className="text-blue-500 cursor-pointer">Register </NavLink> </p>
                                 </div>

@@ -1,12 +1,27 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 //import useCustomContext from '../hooks/useCustomContext';
-import { useSelector } from 'react-redux';
-import { selectCart } from '../redux/features/cart/selectCart';
+import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
+import { selectCart } from '../redux/features/cart/cartSelector';
+import { clearCartProducts } from '../redux/features/cart/cartSlice';
 import Cart from './../components/Cart/Cart';
 
 const OrderReview = () => {
 
     const { bookedProducts = [] } = useSelector(selectCart) || {};
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleComplete = () => {
+        dispatch(clearCartProducts());
+        Swal.fire({
+            icon: 'success',
+            title: 'EXTRAORDINARY',
+            text: 'Your Ordered has been successfull completed!',
+        });
+        navigate("/")
+    }
+
 
     return (
         <div className="my-10 mx-4 lg:m-16">
@@ -23,6 +38,7 @@ const OrderReview = () => {
                 </div>
                 <button>
                     <NavLink to="/checkout"
+                        onClick={handleComplete}
                         className="px-6 border-2 font-semibold  md:text-lg  border-black  py-3 bg-black text-white">
                         <span> Proceed to checkout </span>
                     </NavLink>
@@ -34,14 +50,15 @@ const OrderReview = () => {
                     {
                         bookedProducts?.length === 0 ? <p className='text-center font-medium text-2xl'>No Product in cart! </p> : (
                             bookedProducts.map(pd => {
-                                console.log("pd:", pd)
                                 return (
-                                    <div className="flex flex-col md:flex-row  gap-6  md:items-center shadow-lg bg-white p-10 rounded-lg mb-10">
+                                    <div key={pd.id} className="flex flex-col md:flex-row  gap-6  md:items-center shadow-lg bg-white p-10 rounded-lg mb-10">
                                         <div className="md:w-1/3">
                                             <img className="w-44 h-44 mx-auto md:w-52 md:h-52" src={pd?.image} alt={pd?.title} />
                                         </div>
                                         <div className="md:w-2/3">
-                                            <h3 className="text-2xl mb-2 font-semibold">{pd?.title} </h3>
+                                            <NavLink to={`/product/${pd.id}`}>
+                                                <h3 className="text-2xl mb-2 font-semibold">{pd?.title} </h3>
+                                            </NavLink>
                                             <p> {pd.description} </p>
                                             <h3 className="text-2xl">${pd?.price} </h3>
                                             <h3 className="text-2xl">Quantity: {pd?.quantity} </h3>
@@ -53,7 +70,7 @@ const OrderReview = () => {
                     }
                 </div>
                 <div className="lg:w-1/3 order-1 lg:order-2">
-                    <Cart />
+                    <Cart handleComplete={handleComplete} />
                 </div>
             </div>
 

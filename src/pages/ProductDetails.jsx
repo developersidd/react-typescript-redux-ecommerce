@@ -5,8 +5,8 @@ import { useParams } from 'react-router';
 import ErrorMessage from '../components/ui/ErrorMessage';
 import Loading from '../components/ui/Loading';
 import { sizes } from '../data/Variations';
+import { selectCart } from '../redux/features/cart/cartSelector';
 import { addProduct, editQuantity } from '../redux/features/cart/cartSlice';
-import { selectCart } from '../redux/features/cart/selectCart';
 import { useGetProductQuery } from '../redux/features/product/productAPI';
 const ProductDetails = () => {
     const { pdId } = useParams();
@@ -18,9 +18,7 @@ const ProductDetails = () => {
 
     // handle cart
     const handleCartProduct = () => {
-        const clickedPd = bookedProducts.find(pd => pd.id === pdId);
-        console.log("pdId:", pdId)
-        console.log("clickedPd:", clickedPd)
+        const clickedPd = bookedProducts.find(pd => pd.id === +pdId);
         if (clickedPd?.id) {
             dispatch(editQuantity({ id: pdId, quantity: quantity }));
         } else {

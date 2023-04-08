@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { selectCart } from '../../redux/features/cart/cartSelector';
 import { clearCartProducts } from '../../redux/features/cart/cartSlice';
-import { selectCart } from '../../redux/features/cart/selectCart';
 
-const Cart = () => {
+const Cart = ({handleComplete}) => {
     const { bookedProducts = [] } = useSelector(selectCart);
-    const dispatch = useDispatch()
+   
 
     const totalPrice = bookedProducts[0]?.price ? bookedProducts.reduce((previous, pd) => previous + (pd.price * pd.quantity), 0).toFixed(2) : 0;
 
@@ -22,15 +22,7 @@ const Cart = () => {
         shipping += 50;
     }
 
-    const handleComplete = () => {
-        dispatch(clearCartProducts());
-        Swal.fire({
-            icon: 'success',
-            title: 'EXTRAORDINARY',
-            text: 'Your Ordered has been successfull completed!',
-        });
-    }
-
+    
     return (
         <div className=" shadow-lg p-7 rounded-xl">
             <h3 className="text-center text-2xl font-bold mb-6">ORDER SUMMARY </h3>

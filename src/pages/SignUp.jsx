@@ -69,7 +69,7 @@ const SignUp = () => {
                                     <label htmlFor="terms">Accepts The <span className="text-blue-500">Terms & Condition </span> </label>
                                 </div>
                                 <div className=" flex justify-center items-stretch flex-col sm:items-center sm:flex-row">
-                                    <button type='submit' className=" px-7 mr-1 py-2 rounded-3xl bg-blue-500 hover:bg-blue-600  text-white shadow-lg">Sing Up </button>
+                                    <button type='submit' className=" px-7 mr-4 py-2 rounded-3xl bg-blue-500 hover:bg-blue-600  text-white shadow-lg">Sing Up </button>
                                     <p className="inline-block text-center pb-2">Already have an account?<NavLink to="/login" className="text-blue-500 cursor-pointer">Login </NavLink> </p>
                                 </div>
                             </form>

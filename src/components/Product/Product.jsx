@@ -2,8 +2,8 @@ import { HeartIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
+import { selectCart } from '../../redux/features/cart/cartSelector';
 import { addProduct, editQuantity } from '../../redux/features/cart/cartSlice';
-import { selectCart } from '../../redux/features/cart/selectCart';
 import "./product.css";
 const Product = ({ product }) => {
     const { title, image, id, price, quantity, description } = product || {};
