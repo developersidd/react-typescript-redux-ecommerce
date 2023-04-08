@@ -10,8 +10,6 @@ const cartSlice = createSlice({
     reducers: {
         editQuantity: (state, action) => {
             const clickedPd = state.bookedProducts.find(pd => +pd.id === +action.payload?.id)
-            console.log("clickedPdd:", clickedPd)
-            console.log("quantity:", action.payload?.quantity)
             clickedPd.quantity += +action.payload?.quantity;
         },
         addProduct: (state, action) => {
@@ -20,6 +18,7 @@ const cartSlice = createSlice({
         clearCartProducts: (state, action) => {
             state.bookedProducts = []
         },
+
     }
 });
 

@@ -10,7 +10,6 @@ const Products = () => {
 
     const { data: products, isError, isLoading } = useGetProductsQuery();
     const { category, sortBy, search } = useSelector(selectFilter) || {};
-    console.log("search:", search)
     const dispatch = useDispatch();
     const handleFilterProducts = (pd) => {
         if (category !== "Select Category") {
@@ -21,7 +20,6 @@ const Products = () => {
     }
 
     const handleSearchedProducts = (pd) => {
-        console.log(pd.title)
         if (search !== "") {
             return pd.title?.toLowerCase()?.includes(search?.toLowerCase())
         }
@@ -58,7 +56,7 @@ const Products = () => {
     if (!isLoading && !isError && products?.length > 0) {
         content = <>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-                {products?.filter(handleSearchedProducts)?.length === 0 ? <p> No Product Found on: {search}</p> : products.filter(handleFilterProducts).filter(handleSearchedProducts).sort(handleSortProducts).map(pd => <Product product={pd} />)}
+                {products?.filter(handleSearchedProducts)?.length === 0 ? <p className='font-medium text-center'> No Product Found on: {search}</p> : products.filter(handleFilterProducts).filter(handleSearchedProducts).sort(handleSortProducts).map(pd => <Product product={pd} />)}
             </div>
         </>
     }

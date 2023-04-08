@@ -47,7 +47,7 @@ const Cart = ({handleComplete}) => {
             </div>
             <NavLink onClick={handleComplete} to="/checkout"
                 className="mt-6 px-6 border-2 border-black flex items-center max-w-max py-2 gap-2 text-lg font-semibold">
-                <span> Complate </span>
+                <span> Complete </span>
             </NavLink>
         </div>
 

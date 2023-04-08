@@ -31,7 +31,6 @@ const SignUp = () => {
                 .then(async (result) => {
                     setError("");
                     await updateUser(name);
-                    console.log("result:", result);
                     Swal.fire({
                         icon: 'success',
                         title: 'EXTRAORDINARY',

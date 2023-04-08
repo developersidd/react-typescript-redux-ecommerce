@@ -53,7 +53,6 @@ const Login = () => {
         setIsLoading(true);
         googleSignIn()
             .then((result) => {
-                console.log("result:", result)
                 dispatch(userLoggedIn(result.user))
                 navigate(redirect_URL);
             })
