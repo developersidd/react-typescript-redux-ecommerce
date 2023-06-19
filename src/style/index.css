@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+button:disabled{
+    cursor: not-allowed;
+}
+
 .contact-animation {
     animation: imgAnimate 0.8s linear infinite alternate-reverse;
 }
@@ -15,6 +19,8 @@
         transform: translateY(22px);
     }
 }
+
+
 
 .heading {
     -webkit-text-stroke: 1px #5e5c5c;

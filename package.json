@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.17",
-    "@reduxjs/toolkit": "^1.9.3",
+    "@reduxjs/toolkit": "^1.9.5",
     "firebase": "^9.19.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -22,14 +22,15 @@
     "sweetalert2": "^11.7.3"
   },
   "devDependencies": {
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.38.0",
     "eslint-config-react-app": "^7.0.1",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.1",
+    "typescript": "^5.0.4",
     "vite": "^4.2.0",
     "vite-plugin-eslint": "^1.8.1"
   }
