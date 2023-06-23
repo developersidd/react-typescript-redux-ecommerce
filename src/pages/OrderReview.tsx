@@ -1,11 +1,11 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import BookedProduct from '../components/BookedProduct/BookedProduct';
 import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
 import { selectCart } from '../redux/features/cart/cartSelector';
 import { clearCartProducts } from '../redux/features/cart/cartSlice';
 import { selectProduct } from '../redux/features/product/productSelector';
 import Cart from './../components/Cart/Cart';
-import BookedProduct from '../components/BookedProduct/BookedProduct';
 
 const OrderReview = () => {
 
@@ -39,12 +39,8 @@ const OrderReview = () => {
                     <span className="mr-3">Shopping Bag({bookedProducts?.length}) </span>
                     <span>Whichlist({whichListProductsId?.length}) </span>
                 </div>
-                <button>
-                    <NavLink to="/checkout"
-                        onClick={handleComplete}
-                        className="px-6 border-2 font-semibold  md:text-lg  border-black  py-3 bg-black text-white">
-                        <span> Proceed to checkout </span>
-                    </NavLink>
+                <button onClick={handleComplete} disabled={bookedProducts?.length === 0} className="px-6 border-2 font-semibold  md:text-lg  border-black  py-3 bg-black text-white">
+                    <span> Proceed to checkout </span>
                 </button>
             </div>
             <div className="flex flex-col lg:flex-row gap-5 md:gap-10 lg:items-start">

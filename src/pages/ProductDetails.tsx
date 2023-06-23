@@ -62,7 +62,7 @@ const ProductDetails = () => {
                         <p className="mb-3 md:mb-7  font-medium"> {description} </p>
                         <h3 className="text-2xl md:text-3xl mb-6">${price} </h3>
 
-                        <div className="flex justify-between items-center md:w-2/4">
+                        <div className="flex justify-between items-center lg:w-4/5 2xl:w-3/5">
                             <div className="flex gap-2 items-end">
                                 <h3 className="text-xl md:text-2xl">Color :</h3>
                                 <div className="w-5 h-5 bg-blue-800 rounded-full"></div>
@@ -80,9 +80,9 @@ const ProductDetails = () => {
 
                             </div>
                         </div>
-                        <div className="flex items-center pt-7 md:pt-10 lg:md:w-2/4 justify-between">
+                        <div className="flex items-center pt-5 md:pt-7 lg:w-4/5 2xl:w-3/5 justify-between">
 
-                            <div className="bg-gray-200 px-4 lg:px-6 py-3 shadow rounded-md flex items-center gap-3">
+                            <div className="bg-gray-200 px-4 lg:px-6 2xl:px-8 py-3 shadow rounded-md flex items-center gap-3">
                                 <button disabled={quantity === 1} onClick={() => handleQuantity("minus")} className=''> <MinusIcon className="h-6 " /> </button>
                                 <div className="w-12 font-medium bg-gray-100 rounded-md h-8  text-center flex justify-center items-center" > {quantity} </div>
                                 <button disabled={quantity >= 20} onClick={() => handleQuantity("plus")} className=""> <PlusIcon className="h-6" /> </button>
@@ -91,7 +91,7 @@ const ProductDetails = () => {
                             <div className="">
                                 <button type='button'
                                     onClick={handleCartProduct}
-                                    className="px-4 sm:px-6 lg:px-8 border-2 border-black flex items-center max-w-max py-3 gap-2 hover:bg-black hover:text-white">
+                                    className="px-4 md:px-6 lg:px-7 border-2 border-black flex items-center max-w-max py-3 gap-2 hover:bg-black hover:text-white">
                                     <span> <ShoppingCartIcon className="h-5" /> </span>
                                     <span> Add to cart </span>
                                 </button>

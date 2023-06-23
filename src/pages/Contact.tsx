@@ -26,8 +26,8 @@ const Contact = () => {
 
     const { email, fullName, message, subject } = data;
     return (
-        <div className="container mx-auto px-5 md:px-8 py-20">
-            <h1 className='heading text-3xl'>CONTACT WITH US </h1>
+        <div className="px-6 py-6 md:px-20 md:py-20">
+            <h1 className='heading text-2xl md:text-3xl lg:text-4xl'>CONTACT WITH US </h1>
 
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
 
@@ -47,7 +47,7 @@ const Contact = () => {
                     </div>
                 </div>
 
-                <div className="w-full md:w-1/2">
+                <div className="contact-animation w-full md:w-1/2">
                     <img className="login-contact-animation w-full h-96" src={img} alt="login-register-img" />
                 </div>
             </div>

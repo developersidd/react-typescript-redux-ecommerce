@@ -28,8 +28,6 @@ function App(): JSX.Element {
     }, 1000);
   }, []);
 
-  console.log("isChecking:", isChecking)
-
   return (
     <div className="App">
       <Router>

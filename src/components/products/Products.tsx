@@ -80,7 +80,7 @@ const Products = () => {
 
     return (
         <div className="px-6 md:px-20">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold pt-7 md:pt-16 text-center">Our Featured Products </h2>
+            <h2 className="heading text-2xl md:text-3xl lg:text-4xl font-bold pt-7 md:pt-16 text-center">Our Featured Products </h2>
             <div className="my-5 md:my-10 flex items-center justify-between">
                 <div>
 
