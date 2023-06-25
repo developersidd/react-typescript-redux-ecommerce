@@ -7,7 +7,7 @@ import "./Slider.css";
 const Slider = () => {
     return (
         <div className="h-screen bg-gray-200">
-            <Carousel showArrows={true} autoPlay={true} infiniteLoop={true} showThumbs={true} transitionTime={1200}>
+            <Carousel autoPlay={true} infiniteLoop={true} transitionTime={1200}>
                 {
                     data.map((item) => {
                         return (

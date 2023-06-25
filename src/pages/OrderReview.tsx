@@ -37,9 +37,11 @@ const OrderReview = () => {
                 </button>
                 <div className="font-semibold md:text-lg underline">
                     <span className="mr-3">Shopping Bag({bookedProducts?.length}) </span>
-                    <span>Whichlist({whichListProductsId?.length}) </span>
+                    <NavLink to="/whichlist">
+                        <span>Whichlist({whichListProductsId?.length}) </span>
+                    </NavLink>
                 </div>
-                <button onClick={handleComplete} disabled={bookedProducts?.length === 0} className="px-6 border-2 font-semibold  md:text-lg  border-black  py-3 bg-black text-white">
+                <button onClick={handleComplete} disabled={bookedProducts?.length === 0} className="disabled:cursor-not-allowed px-6 border-2 font-semibold  md:text-lg  border-black  py-3 bg-black text-white">
                     <span> Proceed to checkout </span>
                 </button>
             </div>
@@ -47,7 +49,7 @@ const OrderReview = () => {
                 <div className="lg:w-2/3 order-2 lg:order-1">
 
                     {
-                        bookedProducts?.length === 0 ? <p className='text-center font-medium text-2xl'>No Product in cart! </p> : (
+                        bookedProducts?.length === 0 ? <p className='py-12 text-center font-bold text-lg sm:text-xl md:text-2xl'>No Product in cart! </p> : (
                             bookedProducts?.map(pd => {
                                 return <BookedProduct key={pd.id} product={pd} />
                             })

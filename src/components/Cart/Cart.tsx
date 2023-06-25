@@ -38,7 +38,7 @@ const Cart = ({ handleComplete }: { handleComplete: () => void }) => {
                 <h3>Total: </h3>
                 <h3> ${subTotal}   </h3>
             </div>
-                <button onClick={handleComplete} className="mt-6 px-6 border-2 border-black flex items-center max-w-max py-2 gap-2 text-lg font-semibold" type='button' disabled={bookedProducts?.length === 0}>
+                <button onClick={handleComplete} className="disabled:cursor-not-allowed mt-6 px-6 border-2 border-black flex items-center max-w-max py-2 gap-2 text-lg font-semibold" type='button' disabled={bookedProducts?.length === 0}>
                     <span> Complete </span>
                 </button>
         </div>

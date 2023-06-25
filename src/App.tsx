@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import NotFound from './components/NotFound/NotFound';
 import PrivateRoute from "./components/Private/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
+import Whichlist from "./components/Whichlist/Whichlist";
 import Loading from "./components/ui/Loading";
 import useFirebase from "./hooks/useFirebase";
 import Contact from "./pages/Contact";
@@ -40,6 +41,7 @@ function App(): JSX.Element {
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/whichlist" element={<Whichlist />} />
               {/*  Public Route starts */}
               <Route path="/*" element={<PublicRoute />}>
                 <Route path="login" element={<Login />} />
