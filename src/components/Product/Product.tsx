@@ -25,7 +25,7 @@ const Product = ({ product }: ProductProps) => {
         }
     }
     return (
-        <div style={{ backgroundColor: "#d6eef7" }} className="group p-6 flex justify-center items-center flex-col relative rounded-md">
+        <div style={{ backgroundColor: "#dbeff7" }} className="group p-6 flex justify-center items-center flex-col relative rounded-md">
             <div className='absolute rounded-md  top-0 left-0 w-full h-full bg-black/40 transition duration-500 opacity-0 group-hover:opacity-100' />
             <div className="w-60 h-60 rounded-full bg-white flex items-center justify-center">
                 <img className="w-36 h-36" src={image} alt="" />

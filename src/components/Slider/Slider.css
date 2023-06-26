@@ -1,9 +1,14 @@
-.slider {
-    height: 100vh;
-    display: grid;
-    place-items: center;
+
+.slider .swiper-button-prev, .swiper-button-next    {
+color: #000;
 }
 
-.carousel-status{
-    display: none;
+.slider .swiper-pagination-bullet-active {
+    background-color: #000;
+}
+
+@media screen and (max-width: 768px) {
+    .slider .swiper-button-prev::after, .swiper-button-next::after {
+        font-size: 25px;
+    }
 }

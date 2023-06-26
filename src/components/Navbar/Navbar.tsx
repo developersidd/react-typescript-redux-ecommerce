@@ -1,4 +1,4 @@
-import { ShoppingCartIcon } from '@heroicons/react/24/outline';
+import { MdOutlineShoppingCart } from 'react-icons/md';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/app/hooks';
 import { selectAuth } from '../../redux/features/auth/authSelector';
@@ -74,7 +74,7 @@ const Navbar = () => {
                         }
 
                         <NavLink to="/cart" className={({ isActive }) => `${isActive && "font-bold"} relative  mr-5 md:mr-0 `}>
-                            <ShoppingCartIcon className="h-6" />
+                            <MdOutlineShoppingCart className="h-6 w-6" />
                             <span className="bg-yellow-500 w-5 h-5 flex items-center justify-center rounded-full text-xs absolute -right-3 bottom-3 font-bold">
                                 {bookedProducts.length}
                             </span>

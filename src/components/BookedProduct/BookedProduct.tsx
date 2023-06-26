@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { IBookedProduct } from '../../Types';
 import { useAppDispatch } from '../../redux/app/hooks';
 import { editCartProductQuantity, removeProductFromCart } from '../../redux/features/cart/cartSlice';
+import truncateString from '../../util/truncateString';
 
 const BookedProduct = ({ product }: { product: IBookedProduct }) => {
     const { quantity, id, title, description, image, price } = product || {};
@@ -32,14 +33,14 @@ const BookedProduct = ({ product }: { product: IBookedProduct }) => {
                     <img className="w-44 h-44 mx-auto md:w-52 md:h-52" src={image} alt={title} />
                 </div>
                 <div className="space-y-2 md:w-2/3">
-                    <button onClick={() => dispatch(removeProductFromCart(id))} 
-                    className='absolute right-4 top-7 p-2 md:p-3 hover:drop-shadow-xl shadow-red-700 cursor-pointer bg-red-600 text-white rounded-full'>
-                        <TrashIcon className='h-6 md:h-7' />
+                    <button onClick={() => dispatch(removeProductFromCart(id))}
+                        className='absolute right-4 top-7  md:p-3 hover:drop-shadow-xl shadow-red-700 cursor-pointer bg-red-600 text-white rounded-full'>
+                        <TrashIcon className='h-5' />
                     </button>
                     <NavLink to={`/product/${id}`} >
                         <h3 className="text-2xl  max-w-max border-b border-opacity-0 hover:border-opacity-100  border-yellow-400 font-semibold">{title} </h3>
                     </NavLink>
-                    <p> {description} </p>
+                    <p> {truncateString(description)}... </p>
                     <h3 className="text-xl md:text-2xl"> <span className='font-semibold'>Price: </span> ${price} </h3>
                     <div className='flex items-center justify-between sm:justify-start sm:gap-8 pt-1'>
 

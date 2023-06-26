@@ -1,13 +1,13 @@
-import React from 'react';
+import { FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaLocationArrow, FaPhoneAlt, FaTwitter } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter, FaPhoneAlt, FaLocationArrow, FaEnvelope } from "react-icons/fa";
+
 const Footer = () => {
     return (
         <div>
             <div className="p-5 md:p-10 grid md:grid-cols-2 lg:grid-cols-3 gap-9 md:place-items-center">
                 <div >
                     <h2 className="text-2xl font-bold mb-3">ABShop </h2>
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquam quas reprehenderit ex, animi quaerat a ut voluptatem nihil ullam vel vitae placeat eius in explicabo saepe itaque perspiciatis illo!</p>
+                    <p> AB's Shop is a vibrant and trendy e-commerce destination that caters to the modern shopper seeking convenience, quality, and style. With a name that exudes personality and individuality, AB's Shop offers an extensive range of products that will satisfy every customer's needs and desires.</p>
                     <ul className="flex items-center gap-6 pt-6">
                         <li className="w-10 h-10 bg-black text-white rounded  flex items-center justify-center"><FaFacebookF /> </li>
                         <li className="w-10 h-10 bg-black text-white rounded  flex items-center justify-center"> <FaInstagram /> </li>
@@ -23,19 +23,19 @@ const Footer = () => {
                                 <NavLink to="/"> Home</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/about">About us </NavLink>
+                                <NavLink to="/">About us </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/shop">Man Fashion </NavLink>
                             </li>
                             <li>
-                                <NavLink to=""> Accessories</NavLink>
+                                <NavLink to="/shop"> Accessories</NavLink>
                             </li>
                             <li>
-                                <NavLink to=""> Cart</NavLink>
+                                <NavLink to="/cart"> Cart</NavLink>
                             </li>
                             <li>
-                                <NavLink to=""> Shipping</NavLink>
+                                <NavLink to="/"> Shipping</NavLink>
                             </li>
                         </ul>
 
@@ -44,19 +44,19 @@ const Footer = () => {
                                 <NavLink to="/shop"> shop</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/about">Whichlist </NavLink>
+                                <NavLink to="/whichlist">Whichlist </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/shop">Women Fashion </NavLink>
                             </li>
                             <li>
-                                <NavLink to=""> Order Review </NavLink>
+                                <NavLink to="/cart"> Order Review </NavLink>
                             </li>
                             <li>
-                                <NavLink to=""> privacy & security </NavLink>
+                                <NavLink to="/"> privacy & security </NavLink>
                             </li>
                             <li>
-                                <NavLink to=""> policy & payment </NavLink>
+                                <NavLink to="/"> policy & payment </NavLink>
                             </li>
                         </ul>
                     </div>

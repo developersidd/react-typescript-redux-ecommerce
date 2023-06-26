@@ -1,47 +1,77 @@
-import { ShoppingCartIcon, } from '@heroicons/react/24/outline';
-import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { MdOutlineShoppingCart } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
+// Import Swiper React components
+import { Autoplay, EffectFlip, Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import { useMediaQuery } from "react-responsive";
+import 'swiper/css';
+import "swiper/css/effect-flip";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import data from "../../data/Slider";
 import "./Slider.css";
+
 const Slider = () => {
+    const isMobile = useMediaQuery({ maxWidth: 767 });
     return (
-        <div className="h-screen bg-gray-200">
-            <Carousel autoPlay={true} infiniteLoop={true} transitionTime={1200}>
+        <div className="h-screen slider  bg-gray-200">
+            <Swiper
+                className="h-screen"
+                pagination={{
+                    dynamicBullets: true,
+                }}
+                spaceBetween={50}
+                speed={1000}
+                effect={"flip"}
+                slidesPerView={1}
+                allowTouchMove={false}
+                navigation={true}
+                modules={[Autoplay, Pagination, Navigation, EffectFlip]}
+                autoplay={{
+                    disableOnInteraction: false,
+                    delay: 5000,
+                    waitForTransition: true
+                }}
+
+            >
                 {
                     data.map((item) => {
                         return (
-                            <div key={item.id} className="flex flex-col md:flex-row items-center px-7 md:gap-7">
+                            <SwiperSlide
+                            key={item.id}
+                                className="h-full"
+                            >
 
-                                <div className="w-3/4 h-72 md:w-1/2 md:h-screen"
-                                    style={{
-                                        backgroundImage: `url(${item.img})`,
-                                        backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "60%"
-                                    }}>
+                                <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-7 md:gap-7">
+
+                                    <div className="w-3/4 flex items-center justify-center h-[50vh] md:w-1/2 md:h-screen">
+                                        <img className="h-3/4 w-3/4" src={item.img} alt="" />
+                                    </div>
+
+                                    <div className="w-full h-[50vh] flex max-md:items-center justify-center flex-col md:h-full md:w-1/2 text-center md:text-left">
+
+                                        <h3
+                                            className="text-xl md:text-3xl">{item.subTitle}
+                                        </h3>
+
+                                        <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold my-4 md:my-6">{item.title} </h1>
+
+                                        <NavLink to="/shop"
+                                            className={`${item.id % 2 === 0 && "rounded-full"} ${item.id % 2 !== 0 && "border-dashed"}  px-5 md:px-8 border-2 border-black flex items-center max-md:mx-auto max-md:text-center max-w-max py-3 gap-2 hover:bg-black hover:text-white`}>
+                                            <span> <MdOutlineShoppingCart className="h-6 w-6" /> </span>
+                                            <span className="font-semibold"> {item?.btn} </span>
+                                        </NavLink>
+                                    </div>
                                 </div>
-
-                                <div className="w-full md:w-1/2 text-left">
-
-                                    <h3
-                                        className="text-xl md:text-3xl">{item.subTitle}
-                                    </h3>
-
-                                    <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold my-3 md:my-6">{item.title} </h1>
-
-                                    <NavLink to="/shop"
-                                        className={`${(item.id === 2 || item.id === 4) && "rounded-full"} ${(item.id === 1 || item.id === 3) && "border-dashed"}  px-5 md:px-8 border-2 border-black flex items-center max-w-max py-3 gap-2 hover:bg-black hover:text-white`}>
-                                        <span> <ShoppingCartIcon className="h-5" /> </span>
-                                        <span className="font-semibold"> {item?.btn} </span>
-                                    </NavLink>
-                                </div>
-                            </div>
-
+                            </SwiperSlide>
                         )
                     })
                 }
 
-            </Carousel>
+            </Swiper>
         </div>
+
     )
 }
 
