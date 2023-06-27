@@ -5,6 +5,7 @@ import { type IProduct } from '../../Types';
 import { useAppDispatch, useAppSelector } from '../../redux/app/hooks';
 import { selectProduct } from '../../redux/features/product/productSelector';
 import { addToWhichList, removeFromWhichList } from '../../redux/features/product/productSlice';
+import { useState } from 'react';
 
 type ProductProps = {
     product: IProduct

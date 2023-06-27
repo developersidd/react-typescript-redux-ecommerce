@@ -10,23 +10,8 @@ import { filterByCategory, sortByPrice } from '../../redux/features/filter/filte
 import { useGetProductsQuery } from '../../redux/features/product/productAPI';
 import Loading from '../ui/Loading';
 
-type ProductProps = {
-    setPdRef: (element: HTMLDivElement | null) => void
-}
-
-const Products = ({ setPdRef }: ProductProps) => {
-    const location = useLocation();
-    console.log("setPdRef:", setPdRef)
-    console.log("location:", location)
-
-    const productsRef = useRef<HTMLDivElement | null>(null);
-
-    useEffect(() => {
-        if (location.pathname === "/") {
-            setPdRef(productsRef.current)
-        }
-    }, []);
-
+const Products = () => {
+    
     const { data: products, isError, isLoading } = useGetProductsQuery(undefined);
     const { category, sortBy, search } = useSelector(selectFilter) || {};
 
@@ -54,10 +39,6 @@ const Products = ({ setPdRef }: ProductProps) => {
         } else if (category === "price(dsec)") {
             return b.price - a.price;
         }
-        /* else {
-             return products;
-         }*/
-        //}
     }
 
     //get unique category
@@ -96,7 +77,7 @@ const Products = ({ setPdRef }: ProductProps) => {
     }
 
     return (
-        <div ref={productsRef} className="px-6 md:px-20">
+        <div id="products" className="px-6 md:px-20">
             <h2 className="heading text-2xl md:text-3xl lg:text-4xl font-bold pt-7 md:pt-16 text-center">Our Featured Products </h2>
             <div className="my-5 md:my-10 flex items-center justify-between">
                 <div>

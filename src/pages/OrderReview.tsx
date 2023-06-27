@@ -16,6 +16,12 @@ const OrderReview = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
+    const handleLocation = () => {
+        setTimeout(() => {
+            //window.location.pathname = " "
+        }, 2500);
+    }
+
     const handleComplete = () => {
         dispatch(clearCartProducts());
         Swal.fire({
@@ -36,7 +42,7 @@ const OrderReview = () => {
                         <span> Continue shopping </span>
                     </NavLink>
                 </button>
-                <div className="font-semibold md:text-lg underline">
+                <div onClick={handleLocation} className="font-semibold md:text-lg underline">
                     <span className="mr-3">Shopping Bag({bookedProducts?.length}) </span>
                     <HashLink smooth to="/home#whichlist">
                         <span>Whichlist({whichListProductsId?.length}) </span>

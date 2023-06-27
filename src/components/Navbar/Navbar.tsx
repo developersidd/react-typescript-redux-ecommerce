@@ -30,7 +30,7 @@ const Navbar = () => {
 
     return (
         <div className="shadow-lg">
-            <div className="flex items-center h-16 md:h-20  justify-between px-4 md:px-5 lg:px-10 ">
+            <div className="flex items-center h-16 md:h-[68px]  justify-between px-4 md:px-5 lg:px-10 ">
                 <div className="xl:flex-1  hidden lg:block">
                     <div className="flex items-center">
                         <span className='font-medium'>
@@ -75,7 +75,7 @@ const Navbar = () => {
 
                         <NavLink to="/cart" className={({ isActive }) => `${isActive && "font-bold"} relative  mr-5 md:mr-0 `}>
                             <MdOutlineShoppingCart className="h-6 w-6" />
-                            <span className="bg-orange-400 text-gray-200 w-5 h-5 flex items-center justify-center rounded-full text-xs absolute -right-3 bottom-3 font-bold">
+                            <span className="bg-orange-600 text-gray-200 w-5 h-5 flex items-center justify-center rounded-full text-xs absolute -right-3 bottom-3 font-bold">
                                 {bookedProducts.length}
                             </span>
                         </NavLink>

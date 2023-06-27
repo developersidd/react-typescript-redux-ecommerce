@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom';
 const Footer = () => {
     return (
         <div>
-            <div className="p-5 md:p-10 grid md:grid-cols-2 lg:grid-cols-3 gap-9 md:place-items-center">
+            <div className="p-5 md:p-10 grid md:grid-cols-2 lg:grid-cols-3 gap-9 max-md:text-center max-md:place-items-center">
                 <div >
                     <h2 className="text-2xl font-bold mb-3">ABShop </h2>
                     <p> AB's Shop is a vibrant and trendy e-commerce destination that caters to the modern shopper seeking convenience, quality, and style. With a name that exudes personality and individuality, AB's Shop offers an extensive range of products that will satisfy every customer's needs and desires.</p>
-                    <ul className="flex items-center gap-6 pt-6">
+                    <ul className="flex items-center max-md:justify-center  gap-4 pt-6">
                         <li className="w-10 h-10 bg-black text-white rounded  flex items-center justify-center"><FaFacebookF /> </li>
                         <li className="w-10 h-10 bg-black text-white rounded  flex items-center justify-center"> <FaInstagram /> </li>
                         <li className="w-10 h-10 bg-black text-white rounded  flex items-center justify-center"><FaLinkedinIn />  </li>
@@ -61,9 +61,9 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                <div>
+                <div className="">
                     <h2 className="text-2xl font-bold mb-3">contact</h2>
-                    <ul>
+                    <ul className="flex flex-col max-md:items-center">
                         <li className="flex gap-3 mb-3"> <FaPhoneAlt /> <span>  +0154517815</span>  </li>
                         <li className="flex gap-3 mb-3">  <FaLocationArrow /> <span> Road 105 new york city, usa</span> </li>
                         <li className="flex gap-3 mb-3"><FaEnvelope /> contact@abshop1.com   </li>

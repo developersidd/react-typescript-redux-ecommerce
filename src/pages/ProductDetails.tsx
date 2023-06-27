@@ -14,7 +14,7 @@ const ProductDetails = () => {
     const parsedPdID = Number(pdId);
     const { data: product, isError, isLoading } = useGetProductQuery(parsedPdID);
     const { title, description, price, image } = product || {};
-    const [color, serColor] = useState("");
+    const [color, setColor] = useState("black");
     const { bookedProducts = [] } = useSelector(selectCart);
     const dispatch = useAppDispatch();
     const totalProductQuantity = bookedProducts.find(p => p.id === parsedPdID)?.quantity;
@@ -63,12 +63,12 @@ const ProductDetails = () => {
                         <h3 className="text-2xl md:text-3xl mb-6">${price} </h3>
 
                         <div className="flex justify-between items-center lg:w-4/5 2xl:w-3/5">
-                            <div className="flex gap-2 items-end">
+                            <div className="flex gap-3 items-end">
                                 <h3 className="text-xl md:text-2xl">Color :</h3>
-                                <div className="w-5 h-5 bg-blue-800 rounded-full"></div>
-                                <div className="w-5 h-5 bg-black rounded-full"></div>
-                                <div className="w-5 h-5 bg-green-800 rounded-full"></div>
-                                <div className="w-5 h-5 bg-red-800 rounded-full"></div>
+                                <div onClick={() => setColor("black")} className={`w-5 h-5 ${color === "black" && `ring-4 ring-yellow-400`} bg-black rounded-full`}></div>
+                                <div onClick={() => setColor("cyan")} className={`w-5 h-5 ${color === "cyan" && `ring-4 ring-yellow-400`} bg-cyan-600 rounded-full`}></div>
+                                <div onClick={() => setColor("green")} className={`w-5 h-5 ${color === "green" && `ring-4 ring-yellow-400`} bg-green-600 rounded-full`}></div>
+                                <div onClick={() => setColor("orange")} className={`w-5 h-5 ${color === "orange" && `ring-4 ring-yellow-400`} bg-orange-600 rounded-full`}></div>
                             </div>
                             <div className="flex justify-between items-center">
                                 <h3 className="text-xl md:text-2xl mr-2">Size: </h3>
