@@ -1,4 +1,6 @@
+import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { type IProduct } from '../../Types';
 import Product from '../../components/Product/Product';
 import ErrorMessage from '../../components/ui/ErrorMessage';
@@ -8,7 +10,22 @@ import { filterByCategory, sortByPrice } from '../../redux/features/filter/filte
 import { useGetProductsQuery } from '../../redux/features/product/productAPI';
 import Loading from '../ui/Loading';
 
-const Products = () => {
+type ProductProps = {
+    setPdRef: (element: HTMLDivElement | null) => void
+}
+
+const Products = ({ setPdRef }: ProductProps) => {
+    const location = useLocation();
+    console.log("setPdRef:", setPdRef)
+    console.log("location:", location)
+
+    const productsRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        if (location.pathname === "/") {
+            setPdRef(productsRef.current)
+        }
+    }, []);
 
     const { data: products, isError, isLoading } = useGetProductsQuery(undefined);
     const { category, sortBy, search } = useSelector(selectFilter) || {};
@@ -79,7 +96,7 @@ const Products = () => {
     }
 
     return (
-        <div className="px-6 md:px-20">
+        <div ref={productsRef} className="px-6 md:px-20">
             <h2 className="heading text-2xl md:text-3xl lg:text-4xl font-bold pt-7 md:pt-16 text-center">Our Featured Products </h2>
             <div className="my-5 md:my-10 flex items-center justify-between">
                 <div>

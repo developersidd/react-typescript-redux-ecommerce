@@ -88,7 +88,7 @@ const Whichlist = () => {
 
 
     return (
-        <div className={`px-6 md:px-20 w-full ${isMobile ? "h-[350px]" : "h-[80vh]"} group`}>
+        <div id="whichlist" className={`px-6 md:px-20 w-full h-[350px] group`}>
             <h2 className="heading text-2xl md:text-3xl lg:text-4xl font-bold py-7 md:py-16 text-center">
                 Your Whichlisted Products </h2>
             <div>

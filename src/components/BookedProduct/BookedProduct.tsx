@@ -34,7 +34,7 @@ const BookedProduct = ({ product }: { product: IBookedProduct }) => {
                 </div>
                 <div className="space-y-2 md:w-2/3">
                     <button onClick={() => dispatch(removeProductFromCart(id))}
-                        className='absolute right-4 top-7  md:p-3 hover:drop-shadow-xl shadow-red-700 cursor-pointer bg-red-600 text-white rounded-full'>
+                        className='absolute right-4 p-1 top-7  md:p-3 hover:drop-shadow-xl shadow-red-700 cursor-pointer bg-red-600 text-white rounded-full'>
                         <TrashIcon className='h-5' />
                     </button>
                     <NavLink to={`/product/${id}`} >

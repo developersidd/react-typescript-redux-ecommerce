@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import Swal from 'sweetalert2';
 import BookedProduct from '../components/BookedProduct/BookedProduct';
 import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
@@ -37,9 +38,9 @@ const OrderReview = () => {
                 </button>
                 <div className="font-semibold md:text-lg underline">
                     <span className="mr-3">Shopping Bag({bookedProducts?.length}) </span>
-                    <NavLink to="/whichlist">
+                    <HashLink smooth to="/home#whichlist">
                         <span>Whichlist({whichListProductsId?.length}) </span>
-                    </NavLink>
+                    </HashLink>
                 </div>
                 <button onClick={handleComplete} disabled={bookedProducts?.length === 0} className="disabled:cursor-not-allowed px-6 border-2 font-semibold  md:text-lg  border-black  py-3 bg-black text-white">
                     <span> Proceed to checkout </span>
