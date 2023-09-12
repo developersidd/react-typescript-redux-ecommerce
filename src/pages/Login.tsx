@@ -7,6 +7,7 @@ import Loading from '../components/ui/Loading';
 import useFirebase from '../hooks/useFirebase';
 import { useAppDispatch } from '../redux/app/hooks';
 import { userLoggedIn } from '../redux/features/auth/authSlice';
+import SetPageTitle from '../ui/SetPageTitle';
 const Login = () => {
 
     const { googleSignIn, logInUser } = useFirebase();
@@ -64,6 +65,8 @@ const Login = () => {
 
     return (
         <div className="flex h-[70vh] items-center justify-center">
+                    <SetPageTitle title="Login" />
+
             <div className="p-4 md:p-6 lg:p-10 w-full sm:w-3/4 md:w-4/5 lg:w-3/6 xl:w-2/5">
                 <div className="bg-white rounded-md overflow-hidden shadow-xl w-full">
                     <h3 className="text-center text-yellow-400 text-2xl my-4 font-semibold">SIGN IN </h3>

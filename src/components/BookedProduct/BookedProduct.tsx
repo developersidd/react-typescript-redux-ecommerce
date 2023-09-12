@@ -27,14 +27,14 @@ const BookedProduct = ({ product }: { product: IBookedProduct }) => {
         }
     }
     return (
-        <div className='relative'>
-            <div className="flex flex-col md:flex-row  gap-6  md:items-center shadow-lg bg-white p-5 md:p-8 lg:p-11 rounded-lg ">
+        <div className='relative mb-8'>
+            <div className="flex flex-col md:flex-row  gap-6  md:items-center  bg-white p-5 md:p-8 lg:p-11 rounded-lg " style={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
                 <div className="md:w-1/3">
                     <img className="w-44 h-44 mx-auto md:w-52 md:h-52" src={image} alt={title} />
                 </div>
                 <div className="space-y-2 md:w-2/3">
                     <button onClick={() => dispatch(removeProductFromCart(id))}
-                        className='absolute right-4 p-1 top-7  md:p-3 hover:drop-shadow-xl shadow-red-700 cursor-pointer bg-red-600 text-white rounded-full'>
+                        className='absolute right-4  top-4 p-2 hover:drop-shadow-xl shadow-red-700 cursor-pointer bg-red-600 text-white rounded-full'>
                         <TrashIcon className='h-5' />
                     </button>
                     <NavLink to={`/product/${id}`} >

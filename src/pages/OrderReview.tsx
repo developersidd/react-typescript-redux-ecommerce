@@ -7,6 +7,7 @@ import { selectCart } from '../redux/features/cart/cartSelector';
 import { clearCartProducts } from '../redux/features/cart/cartSlice';
 import { selectProduct } from '../redux/features/product/productSelector';
 import Cart from './../components/Cart/Cart';
+import SetPageTitle from '../ui/SetPageTitle';
 
 const OrderReview = () => {
 
@@ -35,6 +36,8 @@ const OrderReview = () => {
 
     return (
         <div className="my-10 mx-4 lg:m-16">
+                    <SetPageTitle title="Cart" />
+
             <div className="mb-8 md:mb-16 gap-7 flex flex-col  md:flex-row items-center md:justify-between">
                 <button>
                     <NavLink to="/shop"

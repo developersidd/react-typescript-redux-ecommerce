@@ -6,6 +6,7 @@ import Loading from '../components/ui/Loading';
 import useFirebase from '../hooks/useFirebase';
 import { useAppDispatch } from '../redux/app/hooks';
 import { userLoggedIn } from '../redux/features/auth/authSlice';
+import SetPageTitle from '../ui/SetPageTitle';
 
 const SignUp = () => {
 
@@ -54,6 +55,8 @@ const SignUp = () => {
 
     return (
         <div className="flex h-[70vh] items-center  justify-center">
+                    <SetPageTitle title="Sign Up" />
+
             <div className="p-4 md:p-4 lg:p-10 w-full sm:w-3/4 md:w-3/5 lg:w-3/6 xl:w-2/5">
                 <div className="bg-white  rounded-md overflow-hidden shadow-xl">
                     <h3 className="text-center text-yellow-400 text-2xl mt-8 font-semibold">SIGN UP </h3>

@@ -1,10 +1,12 @@
-import React from 'react';
+import SetPageTitle from '../ui/SetPageTitle';
 import Products from './../components/products/Products';
 
 const ProductsPage = () => {
     return (
         <div>
-            <Products/>
+            <SetPageTitle title="Products" />
+
+            <Products />
         </div>
     )
 }

@@ -9,6 +9,7 @@ import { useAppDispatch } from '../redux/app/hooks';
 import { selectCart } from '../redux/features/cart/cartSelector';
 import { editProductQuantity } from '../redux/features/cart/cartSlice';
 import { useGetProductQuery } from '../redux/features/product/productAPI';
+import SetPageTitle from '../ui/SetPageTitle';
 const ProductDetails = () => {
     const { pdId } = useParams();
     const parsedPdID = Number(pdId);
@@ -18,7 +19,7 @@ const ProductDetails = () => {
     const { bookedProducts = [] } = useSelector(selectCart);
     const dispatch = useAppDispatch();
     const totalProductQuantity = bookedProducts.find(p => p.id === parsedPdID)?.quantity;
-    const [quantity, setQuantity] = useState(totalProductQuantity || 1);
+    const [quantity, setQuantity] = useState(1);
 
     // handle cart
     const handleCartProduct = () => {
@@ -53,6 +54,8 @@ const ProductDetails = () => {
     if (!isLoading && !isError && product?.title) {
         content = (
             <div className="p-5 sm:p-7 md:p-9 lg:p-16">
+                    <SetPageTitle title={title || ""} />
+
                 <div className="flex flex-col md:flex-row gap-6 md:items-center">
                     <div className="md:w-1/2">
                         <img className="w-full p-6 sm:p-8 md:10 lg:p-12 lg:w-[500px] lg:h-[650px] object-contain" src={image} alt={title} />

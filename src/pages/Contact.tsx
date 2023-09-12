@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import img from "../assets/images/login.svg";
+import SetPageTitle from "../ui/SetPageTitle";
 interface IContact {
     fullName: string;
     email: string;

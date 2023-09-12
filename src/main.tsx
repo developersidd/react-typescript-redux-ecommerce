@@ -4,9 +4,9 @@ import { Provider } from 'react-redux'
 import 'react-tooltip/dist/react-tooltip.css'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
-import App from './App'
-import { store } from './redux/app/store'
-import "./style/index.css"
+import App from './App';
+import { store } from './redux/app/store';
+import "./style/index.css";
 
 let persistor = persistStore(store);
 

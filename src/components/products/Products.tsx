@@ -1,6 +1,4 @@
-import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 import { type IProduct } from '../../Types';
 import Product from '../../components/Product/Product';
 import ErrorMessage from '../../components/ui/ErrorMessage';
@@ -11,7 +9,7 @@ import { useGetProductsQuery } from '../../redux/features/product/productAPI';
 import Loading from '../ui/Loading';
 
 const Products = () => {
-    
+
     const { data: products, isError, isLoading } = useGetProductsQuery(undefined);
     const { category, sortBy, search } = useSelector(selectFilter) || {};
 
@@ -42,7 +40,7 @@ const Products = () => {
     }
 
     //get unique category
-    const categoryList = [...new Set(products?.map(pd => pd.category))];
+    const categoryList = [...new Set(products?.map((pd :any) => pd.category))];
 
     // decide what to render
     let content = null;

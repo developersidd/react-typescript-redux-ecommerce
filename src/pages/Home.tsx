@@ -3,12 +3,15 @@ import NewsLetter from '../components/NewsLetter/NewsLetter';
 import Slider from '../components/Slider/Slider';
 import Whichlist from '../components/Whichlist/Whichlist';
 import Products from '../components/products/Products';
+import SetPageTitle from '../ui/SetPageTitle';
 import Contact from './Contact';
 
 const Home = () => {
 
     return (
         <div>
+                    <SetPageTitle title="Home" />
+
             <main>
                 <section>
                     <Slider />

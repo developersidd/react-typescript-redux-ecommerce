@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Announcement from './components/Announcement/Announcement';
 import Footer from './components/Footer/Footer';
@@ -31,47 +32,51 @@ function App(): JSX.Element {
   }, []);
 
   return (
-    <div className="App">
-      <Router>
-        <Announcement />
-        <ScrollToTop />
-        <Navbar />
-        {
-          isChecking ? (<Loading />) : (
-            <Routes>
+    <HelmetProvider>
 
-              <Route path="/" element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/contact" element={<Contact />} />
-              {/*  Public Route starts */}
-              <Route path="/*" element={<PublicRoute />}>
-                <Route path="login" element={<Login />} />
-                <Route path="register" element={<SignUp />} />
-              </Route>
-              {/*  Public Route end */}
+      <div className="App">
+        <Router>
+          <Announcement />
+          <ScrollToTop />
+          <Navbar />
+          {
+            isChecking ? (<Loading />) : (
+              <Routes>
+
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/contact" element={<Contact />} />
+                {/*  Public Route starts */}
+                <Route path="/*" element={<PublicRoute />}>
+                  <Route path="login" element={<Login />} />
+                  <Route path="register" element={<SignUp />} />
+                </Route>
+                {/*  Public Route end */}
 
 
-              {/*  Private Route starts */}
-              <Route path="/*" element={<PrivateRoute />}>
-                <Route path="product/:pdId" element={<ProductDetails />} />
-                <Route path="cart" element={<OrderReview />} />
-              </Route>
-              {/*  Private Route ends */}
+                {/*  Private Route starts */}
+                <Route path="/*" element={<PrivateRoute />}>
+                  <Route path="product/:pdId" element={<ProductDetails />} />
+                  <Route path="cart" element={<OrderReview />} />
+                </Route>
+                {/*  Private Route ends */}
 
-              <Route path="/about" element={<Home />} />
-              <Route path="/shop" element={<ProductsPage />} />
-              <Route path="/logout" element={<LogOut />} />
+                <Route path="/about" element={<Home />} />
+                <Route path="/shop" element={<ProductsPage />} />
+                <Route path="/logout" element={<LogOut />} />
 
-              <Route path="*" element={<NotFound />} />
+                <Route path="*" element={<NotFound />} />
 
-            </Routes>
-          )
-        }
+              </Routes>
+            )
+          }
 
-        <Footer />
-      </Router>
+          <Footer />
+        </Router>
 
-    </div>
+      </div>
+    </HelmetProvider>
+
   );
 }
 

@@ -32,7 +32,7 @@ const cartSlice = createSlice({
         }) => {
             const clickedPd = state.bookedProducts.find(pd => pd.id === payload?.id);
             if (clickedPd) {
-                clickedPd.quantity = payload.quantity;
+                clickedPd.quantity += payload.quantity;
             } else {
                 state.bookedProducts.push(payload)
             }
